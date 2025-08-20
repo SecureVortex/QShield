@@ -1,0 +1,6 @@
+fastapi
+requests
+pennylane
+scikit-learn
+uvicorn
+streamlit
