@@ -1,6 +1,14 @@
 from fastapi import FastAPI
-from . import routes
+from fastapi.middleware.cors import CORSMiddleware
+from api.routes import router
 
-app = FastAPI(title="QShield API")
+app = FastAPI()
+app.include_router(router)
 
-app.include_router(routes.router)
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["http://localhost", "http://localhost:8501"],  # Streamlit default
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
